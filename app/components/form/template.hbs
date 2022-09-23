@@ -11,7 +11,7 @@
 <form class="form" {{did-insert this.didInsert}}>
     {{#each this.inputList as |item|}}
     <div class="fields">
-        <input type="text" name="field" value={{item.value}} 
+        <input aria-label = "field" type="text" name="field" value={{item.value}} 
         {{on 'input' (fn this.onInput item)}}
         >
         <div class="actions">
