@@ -1,0 +1,1 @@
+export type ItemParam = { id: number, value: string }

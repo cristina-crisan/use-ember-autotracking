@@ -1,1 +1,23 @@
-{{yield}}
+<ul>
+    {{#each this.colectedDataList as |item|}}
+    {{#if item.value}}
+    <li>{{item.value}}
+    <button type="button" {{on 'click' (fn this.remove item false)}} class="remove">x</button>    
+    </li>
+    {{/if}}
+    {{/each}}
+</ul>
+
+<form class="form" {{did-insert this.didInsert}}>
+    {{#each this.inputList as |item|}}
+    <div class="fields">
+        <input type="text" name="field" value={{item.value}} 
+        {{on 'input' (fn this.onInput item)}}
+        >
+        <div class="actions">
+            <button type="button" {{on 'click' this.addField}}>+</button>
+            <button type="button" {{on 'click' (fn this.remove item true)}} disabled={{this.hasSingleInput}} >-</button>
+        </div>
+    </div>
+    {{/each}}
+</form>

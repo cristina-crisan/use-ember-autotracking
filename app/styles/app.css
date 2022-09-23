@@ -1,0 +1,31 @@
+.form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .fields {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .actions {
+    padding-left: 10px;
+  }
+  
+  ul > li {
+    border: 1px solid black;
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 5px;
+    padding: 5px;
+  }
+  
+  .remove {
+    color: red;
+  }
+  
+  .actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
