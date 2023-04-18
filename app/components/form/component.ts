@@ -7,24 +7,22 @@ import { ItemParam } from '../interface/item';
 interface FormArgs { }
 
 export default class Form extends Component<FormArgs> {
-    inputList: Array<Item> = new TrackedArray([]);
+    inputList!: Array<Item>;
     colectedDataList: Array<Item> = new TrackedArray([]);
-
+    item!:Item
+    constructor(owner: unknown, args:FormArgs) {
+        super(owner, args)
+        const item = new Item(Date.now());
+        this.inputList= new TrackedArray([item]);
+    }
     get hasSingleInput (): boolean {
         return this.inputList.length === 1;
     }
 
     @action
-    didInsert(): void {
-        const item = new Item(Date.now());
-        this.inputList.push(item);
-        this.hasSingleInput;
-    }
-
-    @action
     addField(): void {
-        const item = new Item(Date.now());
-        this.inputList.push(item);
+        this.item = new Item(Date.now());
+        this.inputList.push(this.item);
     }
 
     @action
